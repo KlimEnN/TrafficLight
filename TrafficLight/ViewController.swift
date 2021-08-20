@@ -7,13 +7,16 @@
 
 import UIKit
 
+enum CurrentLamp {
+    case red, yellow, green
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var redLamp: UIView!
     @IBOutlet weak var yellowLamp: UIView!
     @IBOutlet weak var greenLamp: UIView!
-    @IBOutlet var lamps: [UIView]!
-    
+  
     @IBOutlet weak var button: UIButton!
     
     var currentID = 2
@@ -31,26 +34,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func switchButton(_ sender: UIButton) {
-        shotDownLamp()
-        
-        lamps[currentID].alpha = 1
-        button.setTitle("NEXT", for: .normal)
-        
-        
-        if currentID > 0 {
-            currentID -= 1
-        } else {
-            currentID = 2
-        }
+       
     }
-    
-    
-    func shotDownLamp() {
-        for lamp in lamps {
-            lamp.layer.cornerRadius = 75
-            lamp.alpha = 0.1
-        }
-    }
+   
 
     
 }
